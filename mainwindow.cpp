@@ -66,8 +66,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnConnect_clicked()
 {
-    qDebug() << "readyRead";
-
     ui->btnConnect->setEnabled(false);
     blockSize = 0;
     //tcpSocket->abort();
