@@ -117,7 +117,6 @@ void MainWindow::readyRead()
 
         m_nextBlockSize = 0;
     }
-
 }
 
 void MainWindow::displayError(QAbstractSocket::SocketError socketError)
