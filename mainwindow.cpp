@@ -275,11 +275,11 @@ void MainWindow::sendRequest()
 
 void MainWindow::on_fillTableButton_clicked()
 {
-//    QString beginRequired = ui->beginRequiredLineEdit->text();
-//    QString endRequired = ui->endRequiredLineEdit->text();
+    QString beginRequired = ui->beginRequiredLineEdit->text();
+    QString endRequired = ui->endRequiredLineEdit->text();
 
-    QString beginRequired("Fri Mar 14 12:40:29 2014");
-    QString endRequired("Fri Mar 14 12:45:35 2014");
+//    QString beginRequired("Fri Mar 14 12:40:29 2014");
+//    QString endRequired("Fri Mar 14 12:45:35 2014");
 
     if (beginRequired.isEmpty() || endRequired.isEmpty()) {
         QMessageBox::information(this, tr("Client"),
@@ -306,11 +306,11 @@ void MainWindow::on_fillTableButton_clicked()
         return;
     }
 
-//    qint64 begin = beginDateTime.toMSecsSinceEpoch();
-//    qint64 end = endDateTime.toMSecsSinceEpoch();
+    qint64 begin = beginDateTime.toMSecsSinceEpoch();
+    qint64 end = endDateTime.toMSecsSinceEpoch();
 
-    qint64 begin = 1394790029894;
-    qint64 end = 1394790030697;
+//    qint64 begin = 1394790029894;
+//    qint64 end = 1394790030697;
 
     // Check begin and end of the range
 //    if (begin <= end) {
@@ -330,8 +330,8 @@ void MainWindow::on_fillTableButton_clicked()
                                  tr("Wrong query."));
         return;
     } else {
-        QMessageBox::information(this, tr("Client"),
-                                 tr("Good!"));
+//        QMessageBox::information(this, tr("Client"),
+//                                 tr("Good!"));
         //int fieldNo = query.record().indexOf("sensor_name");
         //QList<std::shared_ptr<QStandardItem> > items;
         QList<QStandardItem*> items;
@@ -347,7 +347,6 @@ void MainWindow::on_fillTableButton_clicked()
                 //qDebug() << query.value(i).toString();
             }
             j++;
-            qDebug() << items.size();
             model->appendRow(items);
         }
 
