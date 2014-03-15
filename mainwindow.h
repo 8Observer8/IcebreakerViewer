@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QTcpSocket>
 #include <QTimer>
+#include <QtSql>
+#include <QStandardItemModel>
+#include <QTableView>
 
 QT_BEGIN_NAMESPACE
 class QNetworkSession;
@@ -28,6 +31,8 @@ private slots:
     void sessionOpened();
     void sendRequest();
 
+    void on_fillTableButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     quint16 blockSize;
@@ -35,6 +40,9 @@ private:
     QNetworkSession *networkSession;
     QTimer *timer;
     quint16 m_nextBlockSize;
+    QSqlDatabase database;
+    QStandardItemModel *model;
+    QTableView *table;
 };
 
 #endif // MAINWINDOW_H
