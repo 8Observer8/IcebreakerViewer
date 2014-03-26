@@ -15,8 +15,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    SettingDialog.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    SettingDialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    SettingDialog.ui
