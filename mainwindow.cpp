@@ -107,96 +107,6 @@ void MainWindow::readyRead()
             QMessageBox::information(this, QString("Error"), QString("Unknown command: %1").arg(command[0]));
         }
 
-        //        QStringList stringList = str.split(',');
-        //        if (stringList.size() == 5) {
-        //            int value01 = stringList[0].toInt();
-        //            int value02 = stringList[1].toInt();
-        //            int value03 = stringList[2].toInt();
-        //            int value04 = stringList[3].toInt();
-        //            int value05 = stringList[4].toInt();
-
-        //            ui->sensor01LineEdit->setText(stringList[0]);
-        //            ui->sensor02LineEdit->setText(stringList[1]);
-        //            ui->sensor03LineEdit->setText(stringList[2]);
-        //            ui->sensor04LineEdit->setText(stringList[3]);
-        //            ui->sensor05LineEdit->setText(stringList[4]);
-
-        //            // Save to database
-        //            if (database.isOpen()) {
-        //                QSqlQuery query;
-        //                QString strQuery(QString("INSERT INTO valuesOfSensors(value, data_time, sensor_name) VALUES ('%1','%2', 'value01')").arg(value01).arg(QDateTime::currentDateTime().toMSecsSinceEpoch()));
-        //                if (!query.exec(strQuery)) {
-        //                    QMessageBox::information(this, tr("Client"),
-        //                                             tr("Wrong query."));
-        //                    return;
-        //                }
-
-        //                strQuery = QString("INSERT INTO valuesOfSensors(value, data_time, sensor_name) VALUES ('%1','%2', 'value02')").arg(value02).arg(QDateTime::currentDateTime().toMSecsSinceEpoch());
-        //                if (!query.exec(strQuery)) {
-        //                    QMessageBox::information(this, tr("Client"),
-        //                                             tr("Wrong query."));
-        //                    return;
-        //                }
-
-        //                strQuery = QString("INSERT INTO valuesOfSensors(value, data_time, sensor_name) VALUES ('%1','%2', 'value03')").arg(value03).arg(QDateTime::currentDateTime().toMSecsSinceEpoch());
-        //                if (!query.exec(strQuery)) {
-        //                    QMessageBox::information(this, tr("Client"),
-        //                                             tr("Wrong query."));
-        //                    return;
-        //                }
-
-        //                strQuery = QString("INSERT INTO valuesOfSensors(value, data_time, sensor_name) VALUES ('%1','%2', 'value04')").arg(value04).arg(QDateTime::currentDateTime().toMSecsSinceEpoch());
-        //                if (!query.exec(strQuery)) {
-        //                    QMessageBox::information(this, tr("Client"),
-        //                                             tr("Wrong query."));
-        //                    return;
-        //                }
-
-        //                strQuery = QString("INSERT INTO valuesOfSensors(value, data_time, sensor_name) VALUES ('%1','%2', 'value05')").arg(value05).arg(QDateTime::currentDateTime().toMSecsSinceEpoch());
-        //                if (!query.exec(strQuery)) {
-        //                    QMessageBox::information(this, tr("Client"),
-        //                                             tr("Wrong query."));
-        //                    return;
-        //                }
-
-        //                // Time of first data
-        //                strQuery = QString("SELECT data_time FROM valuesOfSensors LIMIT 1");
-        //                if (!query.exec(strQuery)) {
-        //                    QMessageBox::information(this, tr("Client"),
-        //                                             tr("Wrong query."));
-        //                    return;
-        //                } else {
-        //                    if (query.next()) {
-        //                        QDateTime time;
-        //                        time.setMSecsSinceEpoch(query.value(0).toString().toULongLong());
-        //                        ui->beginPossibleLineEdit->setText(time.toString());
-        //                    }
-        //                }
-
-        //                // Time of last data
-        //                strQuery = QString("SELECT data_time FROM valuesOfSensors WHERE ID = (SELECT MAX(ID) FROM valuesOfSensors);");
-        //                if (!query.exec(strQuery)) {
-        //                    QMessageBox::information(this, tr("Client"),
-        //                                             tr("Wrong query."));
-        //                    return;
-        //                } else {
-        //                    if (query.next()) {
-        //                        QDateTime time;
-        //                        time.setMSecsSinceEpoch(query.value(0).toULongLong());
-        //                        ui->endPossibleLineEdit->setText(time.toString());
-        //                    }
-        //                }
-        //            } else {
-        //                QMessageBox::information(this, tr("Client"),
-        //                                         tr("No connection to Database."));
-        //                return;
-        //            }
-        //        } else {
-        //            QMessageBox::information(this, tr("Client"),
-        //                                     tr("stringList.size() != 5"));
-        //            return;
-        //        }
-
         m_nextBlockSize = 0;
     }
 }
@@ -282,36 +192,6 @@ void MainWindow::on_fillTableButton_clicked()
     }
 
     ui->fillTableButton->setEnabled(false);
-
-    //    qint64 begin = beginDateTime.toMSecsSinceEpoch();
-    //    qint64 end = endDateTime.toMSecsSinceEpoch();
-
-    //    int ncols = 3;
-    //    int nrows = 0;
-    //    model = new QStandardItemModel(nrows, ncols, this);
-
-    //    QSqlQuery query;
-    //    QString strQuery = QString("SELECT * FROM valuesOfSensors WHERE data_time>='%1' AND data_time<='%2';").arg(begin).arg(end);
-    //    if (!query.exec(strQuery)) {
-    //        QMessageBox::information(this, tr("Client"),
-    //                                 tr("Wrong query."));
-    //        return;
-    //    } else {
-    //        QList<QStandardItem*> items;
-    //        int j = 0;
-    //        while (query.next()) {
-    //            items.clear();
-    //            for (int i = 1; i < 4; i++) {
-    //                QStandardItem *item = new QStandardItem(QString(query.value(i).toString()));
-    //                items.push_back(item);
-    //            }
-    //            j++;
-    //            model->appendRow(items);
-    //        }
-    //    }
-
-    //    table = new QTableView;
-    //    ui->table->setModel(model);
 }
 
 void MainWindow::on_actionSettings_triggered()
